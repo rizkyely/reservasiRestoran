@@ -9,13 +9,39 @@ package reservasirestoran;
  *
  * @author addsa
  */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class pilihMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form pilihMenu
      */
+    private DefaultTableModel dtm = new DefaultTableModel();
+    BufferedReader br;
+    BufferedWriter bw;
+    int totalHarga = 0;
     public pilihMenu() {
         initComponents();
+        dtm.addColumn("Nama Item");
+        dtm.addColumn("Harga");
+        Tabel.setModel(dtm);
+
+        setLocationRelativeTo(null);
+        membacadataMenu();
+    }
+    public boolean isCellEditable(int rowIndex, int colIndex) {
+        return false;
+    }
+    
+    public void membacadataMenu(){
+        
+        
     }
 
     /**
@@ -45,37 +71,37 @@ public class pilihMenu extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        ss = new javax.swing.JLabel();
+        Rpss = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        sp = new javax.swing.JLabel();
+        Rpsp = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        c = new javax.swing.JLabel();
+        Rpc = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        ic = new javax.swing.JLabel();
+        Rpi = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        j = new javax.swing.JLabel();
+        Rpj = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
+        Rpb = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        p = new javax.swing.JLabel();
+        Rpp = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Tabel = new javax.swing.JTable();
         jLabel37 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -183,105 +209,119 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jButton7);
         jButton7.setBounds(10, 340, 140, 80);
 
-        jLabel9.setText("STEAK SAPI");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(50, 100, 70, 14);
+        ss.setText("STEAK SAPI");
+        jPanel3.add(ss);
+        ss.setBounds(50, 100, 70, 14);
 
-        jLabel10.setText("RP 30.000,-");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(50, 120, 80, 14);
+        Rpss.setText("RP 30.000,-");
+        jPanel3.add(Rpss);
+        Rpss.setBounds(50, 120, 80, 14);
 
         jLabel11.setText("Stock :");
         jPanel3.add(jLabel11);
         jLabel11.setBounds(20, 140, 33, 14);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(jLabel12);
         jLabel12.setBounds(80, 140, 0, 0);
 
-        jLabel13.setText("SPAGHETTI");
-        jPanel3.add(jLabel13);
-        jLabel13.setBounds(360, 100, 55, 14);
+        sp.setText("SPAGHETTI");
+        jPanel3.add(sp);
+        sp.setBounds(360, 100, 55, 14);
 
-        jLabel14.setText("RP 20.000,-");
-        jPanel3.add(jLabel14);
-        jLabel14.setBounds(360, 120, 70, 14);
+        Rpsp.setText("RP 20.000,-");
+        jPanel3.add(Rpsp);
+        Rpsp.setBounds(360, 120, 70, 14);
 
         jLabel15.setText("Stok :");
         jPanel3.add(jLabel15);
         jLabel15.setBounds(330, 140, 28, 14);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(jLabel16);
         jLabel16.setBounds(390, 140, 0, 0);
 
-        jLabel17.setText("COFFEE");
-        jPanel3.add(jLabel17);
-        jLabel17.setBounds(60, 270, 39, 14);
+        c.setText("COFFEE");
+        jPanel3.add(c);
+        c.setBounds(60, 270, 39, 14);
 
-        jLabel18.setText("RP 10.000,-");
-        jPanel3.add(jLabel18);
-        jLabel18.setBounds(50, 290, 70, 14);
+        Rpc.setText("RP 10.000,-");
+        jPanel3.add(Rpc);
+        Rpc.setBounds(50, 290, 70, 14);
 
         jLabel19.setText("Stock :");
         jPanel3.add(jLabel19);
         jLabel19.setBounds(30, 310, 33, 14);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(jLabel20);
         jLabel20.setBounds(90, 310, 0, 0);
 
-        jLabel21.setText("ICE CREAM");
-        jPanel3.add(jLabel21);
-        jLabel21.setBounds(210, 270, 55, 14);
+        ic.setText("ICE CREAM");
+        jPanel3.add(ic);
+        ic.setBounds(210, 270, 55, 14);
 
-        jLabel22.setText("RP 15.000,-");
-        jPanel3.add(jLabel22);
-        jLabel22.setBounds(210, 290, 58, 14);
+        Rpi.setText("RP 15.000,-");
+        jPanel3.add(Rpi);
+        Rpi.setBounds(210, 290, 58, 14);
 
         jLabel23.setText("Stock");
         jPanel3.add(jLabel23);
         jLabel23.setBounds(190, 310, 26, 14);
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(jLabel24);
         jLabel24.setBounds(240, 310, 0, 0);
 
-        jLabel25.setText("JUICE");
-        jPanel3.add(jLabel25);
-        jLabel25.setBounds(360, 270, 29, 14);
+        j.setText("JUICE");
+        jPanel3.add(j);
+        j.setBounds(360, 270, 29, 14);
 
-        jLabel26.setText("RP 8.000,-");
-        jPanel3.add(jLabel26);
-        jLabel26.setBounds(360, 290, 60, 14);
+        Rpj.setText("RP 8.000,-");
+        jPanel3.add(Rpj);
+        Rpj.setBounds(360, 290, 60, 14);
 
         jLabel27.setText("Stock :");
         jPanel3.add(jLabel27);
         jLabel27.setBounds(340, 310, 33, 14);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(jLabel28);
         jLabel28.setBounds(390, 310, 0, 0);
 
-        jLabel29.setText("BURGER");
-        jPanel3.add(jLabel29);
-        jLabel29.setBounds(60, 430, 40, 14);
+        b.setText("BURGER");
+        jPanel3.add(b);
+        b.setBounds(60, 430, 40, 14);
 
-        jLabel30.setText("RP 15.000.-");
-        jPanel3.add(jLabel30);
-        jLabel30.setBounds(50, 450, 58, 14);
+        Rpb.setText("RP 15.000.-");
+        jPanel3.add(Rpb);
+        Rpb.setBounds(50, 450, 58, 14);
 
         jLabel31.setText("Stock :");
         jPanel3.add(jLabel31);
         jLabel31.setBounds(30, 470, 33, 14);
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(jLabel32);
         jLabel32.setBounds(90, 470, 0, 0);
 
-        jLabel33.setText("PIZZA");
-        jPanel3.add(jLabel33);
-        jLabel33.setBounds(360, 430, 29, 14);
+        p.setText("PIZZA");
+        jPanel3.add(p);
+        p.setBounds(360, 430, 29, 14);
 
-        jLabel34.setText("RP 40.000,-");
-        jPanel3.add(jLabel34);
-        jLabel34.setBounds(350, 450, 70, 14);
+        Rpp.setText("RP 40.000,-");
+        jPanel3.add(Rpp);
+        Rpp.setBounds(350, 450, 70, 14);
 
         jLabel35.setText("Stock");
         jPanel3.add(jLabel35);
         jLabel35.setBounds(330, 470, 26, 14);
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(jLabel36);
         jLabel36.setBounds(390, 470, 0, 0);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -292,7 +332,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(Tabel);
 
         jLabel37.setText("Total             :");
 
@@ -347,41 +387,43 @@ public class pilihMenu extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jButton9))
                             .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jButton10))
+                                .addComponent(jButton10)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel38)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField3)))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabel39)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel38)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jTextField4)
+                                    .addComponent(jTextField3)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel39)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,10 +452,11 @@ public class pilihMenu extends javax.swing.JFrame {
                     .addComponent(jButton10))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -506,6 +549,18 @@ public class pilihMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Rpb;
+    private javax.swing.JLabel Rpc;
+    private javax.swing.JLabel Rpi;
+    private javax.swing.JLabel Rpj;
+    private javax.swing.JLabel Rpp;
+    private javax.swing.JLabel Rpsp;
+    private javax.swing.JLabel Rpss;
+    private javax.swing.JTable Tabel;
+    private javax.swing.JLabel b;
+    private javax.swing.JLabel c;
+    private javax.swing.JLabel ic;
+    private javax.swing.JLabel j;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -520,33 +575,20 @@ public class pilihMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
@@ -557,18 +599,19 @@ public class pilihMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel p;
+    private javax.swing.JLabel sp;
+    private javax.swing.JLabel ss;
     // End of variables declaration//GEN-END:variables
 }
