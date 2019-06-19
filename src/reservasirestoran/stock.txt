@@ -1,0 +1,8 @@
+NO  NAMA  TOTAL
+001  Steak  100
+002  Spageti  100
+003  Coffe  100
+004  ICream  100
+005  Juice  100
+006  Burger  100
+007  Pizza  100
