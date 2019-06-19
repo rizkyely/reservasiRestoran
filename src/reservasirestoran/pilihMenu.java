@@ -310,7 +310,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         ss.setText("STEAK SAPI");
         jPanel3.add(ss);
-        ss.setBounds(50, 100, 70, 14);
+        ss.setBounds(50, 100, 80, 14);
 
         Rpss.setText("RP 30.000,-");
         jPanel3.add(Rpss);
@@ -326,7 +326,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         sp.setText("SPAGHETTI");
         jPanel3.add(sp);
-        sp.setBounds(360, 100, 55, 14);
+        sp.setBounds(360, 100, 80, 14);
 
         Rpsp.setText("RP 20.000,-");
         jPanel3.add(Rpsp);
@@ -342,7 +342,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         c.setText("COFFEE");
         jPanel3.add(c);
-        c.setBounds(60, 270, 39, 14);
+        c.setBounds(60, 270, 70, 14);
 
         Rpc.setText("RP 10.000,-");
         jPanel3.add(Rpc);
@@ -358,7 +358,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         ic.setText("ICE CREAM");
         jPanel3.add(ic);
-        ic.setBounds(210, 270, 55, 14);
+        ic.setBounds(210, 270, 70, 14);
 
         Rpi.setText("RP 15.000,-");
         jPanel3.add(Rpi);
@@ -374,7 +374,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         j.setText("JUICE");
         jPanel3.add(j);
-        j.setBounds(360, 270, 29, 14);
+        j.setBounds(360, 270, 60, 14);
 
         Rpj.setText("RP 8.000,-");
         jPanel3.add(Rpj);
@@ -390,7 +390,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         b.setText("BURGER");
         jPanel3.add(b);
-        b.setBounds(60, 430, 40, 14);
+        b.setBounds(60, 430, 60, 14);
 
         Rpb.setText("RP 15.000.-");
         jPanel3.add(Rpb);
@@ -406,7 +406,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         p.setText("PIZZA");
         jPanel3.add(p);
-        p.setBounds(360, 430, 29, 14);
+        p.setBounds(360, 430, 70, 14);
 
         Rpp.setText("RP 40.000,-");
         jPanel3.add(Rpp);
@@ -435,9 +435,14 @@ public class pilihMenu extends javax.swing.JFrame {
 
         jlabel22.setText("Total             :");
 
-        jTextField1.setText("Rp");
+        jTextField1.setText(" Rp");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("Rp");
+        jTextField2.setText(" Rp");
 
         jlabel23.setText("Pembayaran  :");
 
@@ -450,7 +455,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         jlabel43.setText("Kembalian      : ");
 
-        jTextField5.setText("Rp");
+        jTextField5.setText(" Rp");
 
         jButton9.setText("LIHAT STOCK");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -829,6 +834,10 @@ public class pilihMenu extends javax.swing.JFrame {
 
         stk.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
