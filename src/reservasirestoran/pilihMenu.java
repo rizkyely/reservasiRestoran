@@ -14,7 +14,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.MessageFormat;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class pilihMenu extends javax.swing.JFrame {
@@ -40,7 +42,67 @@ public class pilihMenu extends javax.swing.JFrame {
     }
     
     public void membacadataMenu(){
+        File file = new File("src/reservasirestoran/stock.txt");
+
+        try {
+            FileReader read = new FileReader(file);
+            br = new BufferedReader(read);
+
+            String baris;
+            String[] dipisah = null;
+            String[] stock = new String[255];
+            int i = 0;
+
+            while ((baris = br.readLine()) != null) {
+                dipisah = baris.split("\\s+");
+                stock[i] = dipisah[2];
+                i++;
+            }
+
+            stockSS.setText(stock[1]);
+            stockSP.setText(stock[2]);
+            stockC.setText(stock[3]);
+            stockIC.setText(stock[4]);
+            stockJ.setText(stock[5]);
+            stockB.setText(stock[6]);
+            stockP.setText(stock[7]);
+            
+            br.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         
+    }
+    public void menulisdataMenu(){
+        File file = new File("src/reservasirestoran/stockFood.txt");
+
+        try {
+            FileWriter write = new FileWriter(file);
+            bw = new BufferedWriter(write);
+
+            bw.write("NO    NAMA    TOTAL");
+            bw.newLine();
+            bw.write("001 Steak " + stockSS.getText());
+            bw.newLine();
+            bw.write("002 Spaghetti " + stockSP.getText());
+            bw.newLine();
+            bw.write("003 Coffee " + stockC.getText());
+            bw.newLine();
+            bw.write("004 Icream " + stockIC.getText());
+            bw.newLine();
+            bw.write("005 Juice " + stockJ.getText());
+            bw.newLine();
+            bw.write("006 Burger " + stockB.getText());
+            bw.newLine();
+            bw.write("007 Pizaa " + stockP.getText());
+            bw.newLine();
+            
+            bw.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         
     }
 
@@ -74,44 +136,44 @@ public class pilihMenu extends javax.swing.JFrame {
         ss = new javax.swing.JLabel();
         Rpss = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        stockSS = new javax.swing.JLabel();
         sp = new javax.swing.JLabel();
         Rpsp = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        stockSP = new javax.swing.JLabel();
         c = new javax.swing.JLabel();
         Rpc = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        stockC = new javax.swing.JLabel();
         ic = new javax.swing.JLabel();
         Rpi = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        stockIC = new javax.swing.JLabel();
         j = new javax.swing.JLabel();
         Rpj = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
+        stockJ = new javax.swing.JLabel();
         b = new javax.swing.JLabel();
         Rpb = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        stockB = new javax.swing.JLabel();
         p = new javax.swing.JLabel();
         Rpp = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        stockP = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tabel = new javax.swing.JTable();
-        jLabel37 = new javax.swing.JLabel();
+        jlabel22 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jLabel38 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jlabel23 = new javax.swing.JLabel();
+        pembelian = new javax.swing.JTextField();
+        pembayaran = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
-        jLabel39 = new javax.swing.JLabel();
+        jlabel43 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        kembalian = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -182,30 +244,65 @@ public class pilihMenu extends javax.swing.JFrame {
         jLabel8.setBounds(314, 344, 130, 70);
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton1);
         jButton1.setBounds(310, 340, 140, 80);
 
         jButton2.setText("jButton1");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2);
         jButton2.setBounds(10, 10, 140, 80);
 
         jButton3.setText("jButton1");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton3);
         jButton3.setBounds(310, 10, 140, 80);
 
         jButton4.setText("jButton1");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton4);
         jButton4.setBounds(10, 180, 140, 80);
 
         jButton5.setText("jButton1");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton5);
         jButton5.setBounds(160, 180, 140, 80);
 
         jButton6.setText("jButton1");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton6);
         jButton6.setBounds(310, 180, 140, 80);
 
         jButton7.setText("jButton1");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton7);
         jButton7.setBounds(10, 340, 140, 80);
 
@@ -221,9 +318,9 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel11);
         jLabel11.setBounds(20, 140, 33, 14);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(jLabel12);
-        jLabel12.setBounds(80, 140, 0, 0);
+        stockSS.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(stockSS);
+        stockSS.setBounds(80, 140, 0, 0);
 
         sp.setText("SPAGHETTI");
         jPanel3.add(sp);
@@ -237,9 +334,9 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel15);
         jLabel15.setBounds(330, 140, 28, 14);
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(jLabel16);
-        jLabel16.setBounds(390, 140, 0, 0);
+        stockSP.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(stockSP);
+        stockSP.setBounds(390, 140, 0, 0);
 
         c.setText("COFFEE");
         jPanel3.add(c);
@@ -253,9 +350,9 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel19);
         jLabel19.setBounds(30, 310, 33, 14);
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(jLabel20);
-        jLabel20.setBounds(90, 310, 0, 0);
+        stockC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(stockC);
+        stockC.setBounds(90, 310, 0, 0);
 
         ic.setText("ICE CREAM");
         jPanel3.add(ic);
@@ -269,9 +366,9 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel23);
         jLabel23.setBounds(190, 310, 26, 14);
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(jLabel24);
-        jLabel24.setBounds(240, 310, 0, 0);
+        stockIC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(stockIC);
+        stockIC.setBounds(240, 310, 0, 0);
 
         j.setText("JUICE");
         jPanel3.add(j);
@@ -285,9 +382,9 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel27);
         jLabel27.setBounds(340, 310, 33, 14);
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(jLabel28);
-        jLabel28.setBounds(390, 310, 0, 0);
+        stockJ.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(stockJ);
+        stockJ.setBounds(390, 310, 0, 0);
 
         b.setText("BURGER");
         jPanel3.add(b);
@@ -301,9 +398,9 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel31);
         jLabel31.setBounds(30, 470, 33, 14);
 
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(jLabel32);
-        jLabel32.setBounds(90, 470, 0, 0);
+        stockB.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(stockB);
+        stockB.setBounds(90, 470, 0, 0);
 
         p.setText("PIZZA");
         jPanel3.add(p);
@@ -317,9 +414,9 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel35);
         jLabel35.setBounds(330, 470, 26, 14);
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(jLabel36);
-        jLabel36.setBounds(390, 470, 0, 0);
+        stockP.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(stockP);
+        stockP.setBounds(390, 470, 0, 0);
 
         Tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -334,13 +431,13 @@ public class pilihMenu extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(Tabel);
 
-        jLabel37.setText("Total             :");
+        jlabel22.setText("Total             :");
 
         jTextField1.setText("Rp");
 
         jTextField2.setText("Rp");
 
-        jLabel38.setText("Pembayaran  :");
+        jlabel23.setText("Pembayaran  :");
 
         jButton8.setText("SUBMIT");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -349,11 +446,16 @@ public class pilihMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel39.setText("Kembalian      : ");
+        jlabel43.setText("Kembalian      : ");
 
         jTextField5.setText("Rp");
 
         jButton9.setText("LIHAT STOCK");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("REFRESH");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -363,6 +465,11 @@ public class pilihMenu extends javax.swing.JFrame {
         });
 
         jButton11.setText("RESET");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("CETAK NOTA");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -372,6 +479,11 @@ public class pilihMenu extends javax.swing.JFrame {
         });
 
         jButton13.setText("LOGOUT");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -401,11 +513,11 @@ public class pilihMenu extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel38)
+                                        .addComponent(jlabel23)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jlabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -414,14 +526,14 @@ public class pilihMenu extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField3)))
+                                    .addComponent(pembayaran)
+                                    .addComponent(pembelian)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel39)
+                                .addComponent(jlabel43)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(kembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -431,21 +543,21 @@ public class pilihMenu extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
+                    .addComponent(jlabel22)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pembelian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel38)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlabel23)
+                    .addComponent(pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel39)
+                    .addComponent(jlabel43)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
@@ -503,6 +615,16 @@ public class pilihMenu extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        int a = Integer.parseInt(pembelian.getText());
+        int b = Integer.parseInt(pembayaran.getText());
+        int c = b - a;
+
+        if (c < 0) {
+            JOptionPane.showMessageDialog(rootPane, "Uang yang dibayarkan tidak mencukupi");
+        } else {
+            kembalian.setText("" + c);
+            menulisdataMenu();
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -511,7 +633,195 @@ public class pilihMenu extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        MessageFormat header = new MessageFormat("Struk Belanja");
+
+        MessageFormat footer = new MessageFormat("Terima kasih telah belanja di AWP");
+        try {
+            Tabel.print(JTable.PrintMode.NORMAL, header, footer);
+        } catch (java.awt.print.PrinterException e) {
+            System.err.format("Cannot print %s%n", e.getMessage());
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        //ganti harga belum
+        String a = ss.getText();
+        String b = Rpss.getText();
+        Object[] o = {a, b};
+
+        int c = Integer.parseInt(stockSS.getText());
+        c -= 1;
+        String d = Integer.toString(c);
+        String stockKosong = "-1";
+        boolean cek = d.equals(stockKosong);
+        if (cek) {
+            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+        } else {
+            stockSS.setText(d);
+            dtm.addRow(o);
+
+            totalHarga += 8000;
+            pembelian.setText("" + totalHarga);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String a = sp.getText();
+        String b = Rpsp.getText();
+        Object[] o = {a, b};
+
+        int c = Integer.parseInt(stockSP.getText());
+        c -= 1;
+        String d = Integer.toString(c);
+        String stockKosong = "-1";
+        boolean cek = d.equals(stockKosong);
+        if (cek) {
+            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+        } else {
+            stockSP.setText(d);
+            dtm.addRow(o);
+
+            totalHarga += 8000;
+            pembelian.setText("" + totalHarga);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String a = c.getText();
+        String b = Rpc.getText();
+        Object[] o = {a, b};
+
+        int c = Integer.parseInt(stockC.getText());
+        c -= 1;
+        String d = Integer.toString(c);
+        String stockKosong = "-1";
+        boolean cek = d.equals(stockKosong);
+        if (cek) {
+            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+        } else {
+            stockC.setText(d);
+            dtm.addRow(o);
+
+            totalHarga += 8000;
+            pembelian.setText("" + totalHarga);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String a = ic.getText();
+        String b = Rpi.getText();
+        Object[] o = {a, b};
+
+        int c = Integer.parseInt(stockIC.getText());
+        c -= 1;
+        String d = Integer.toString(c);
+        String stockKosong = "-1";
+        boolean cek = d.equals(stockKosong);
+        if (cek) {
+            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+        } else {
+            stockIC.setText(d);
+            dtm.addRow(o);
+
+            totalHarga += 8000;
+            pembelian.setText("" + totalHarga);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        String a = j.getText();
+        String b = Rpj.getText();
+        Object[] o = {a, b};
+
+        int c = Integer.parseInt(stockJ.getText());
+        c -= 1;
+        String d = Integer.toString(c);
+        String stockKosong = "-1";
+        boolean cek = d.equals(stockKosong);
+        if (cek) {
+            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+        } else {
+            stockJ.setText(d);
+            dtm.addRow(o);
+
+            totalHarga += 8000;
+            pembelian.setText("" + totalHarga);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        String a = b.getText();
+        String b = Rpb.getText();
+        Object[] o = {a, b};
+
+        int c = Integer.parseInt(stockB.getText());
+        c -= 1;
+        String d = Integer.toString(c);
+        String stockKosong = "-1";
+        boolean cek = d.equals(stockKosong);
+        if (cek) {
+            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+        } else {
+            stockB.setText(d);
+            dtm.addRow(o);
+
+            totalHarga += 8000;
+            pembelian.setText("" + totalHarga);
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String a = p.getText();
+        String b = Rpp.getText();
+        Object[] o = {a, b};
+
+        int c = Integer.parseInt(stockP.getText());
+        c -= 1;
+        String d = Integer.toString(c);
+        String stockKosong = "-1";
+        boolean cek = d.equals(stockKosong);
+        if (cek) {
+            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+        } else {
+            stockP.setText(d);
+            dtm.addRow(o);
+
+            totalHarga += 8000;
+            pembelian.setText("" + totalHarga);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+                dtm.getDataVector().removeAllElements();
+        dtm.fireTableDataChanged();
+
+        pembayaran.setText("0");
+        totalHarga = 0;
+        pembayaran.setText("0");
+        kembalian.setText("0");
+        membacadataMenu();
+
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        mainMenu menu = new mainMenu();
+
+        menu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,24 +886,14 @@ public class pilihMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -606,12 +906,22 @@ public class pilihMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel jlabel22;
+    private javax.swing.JLabel jlabel23;
+    private javax.swing.JLabel jlabel43;
+    private javax.swing.JTextField kembalian;
     private javax.swing.JLabel p;
+    private javax.swing.JTextField pembayaran;
+    private javax.swing.JTextField pembelian;
     private javax.swing.JLabel sp;
     private javax.swing.JLabel ss;
+    private javax.swing.JLabel stockB;
+    private javax.swing.JLabel stockC;
+    private javax.swing.JLabel stockIC;
+    private javax.swing.JLabel stockJ;
+    private javax.swing.JLabel stockP;
+    private javax.swing.JLabel stockSP;
+    private javax.swing.JLabel stockSS;
     // End of variables declaration//GEN-END:variables
 }
