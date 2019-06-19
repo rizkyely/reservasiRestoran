@@ -28,6 +28,7 @@ public class pilihMenu extends javax.swing.JFrame {
     BufferedReader br;
     BufferedWriter bw;
     int totalHarga = 0;
+    
     public pilihMenu() {
         initComponents();
         dtm.addColumn("Nama Item");
@@ -36,6 +37,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
         setLocationRelativeTo(null);
         membacadataMenu();
+
     }
     public boolean isCellEditable(int rowIndex, int colIndex) {
         return false;
@@ -316,11 +318,11 @@ public class pilihMenu extends javax.swing.JFrame {
 
         jLabel11.setText("Stock :");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(20, 140, 33, 14);
+        jLabel11.setBounds(20, 140, 40, 14);
 
         stockSS.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(stockSS);
-        stockSS.setBounds(80, 140, 0, 0);
+        stockSS.setBounds(70, 140, 50, 30);
 
         sp.setText("SPAGHETTI");
         jPanel3.add(sp);
@@ -332,11 +334,11 @@ public class pilihMenu extends javax.swing.JFrame {
 
         jLabel15.setText("Stok :");
         jPanel3.add(jLabel15);
-        jLabel15.setBounds(330, 140, 28, 14);
+        jLabel15.setBounds(330, 140, 40, 14);
 
         stockSP.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(stockSP);
-        stockSP.setBounds(390, 140, 0, 0);
+        stockSP.setBounds(380, 140, 50, 30);
 
         c.setText("COFFEE");
         jPanel3.add(c);
@@ -348,11 +350,11 @@ public class pilihMenu extends javax.swing.JFrame {
 
         jLabel19.setText("Stock :");
         jPanel3.add(jLabel19);
-        jLabel19.setBounds(30, 310, 33, 14);
+        jLabel19.setBounds(30, 310, 40, 14);
 
         stockC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(stockC);
-        stockC.setBounds(90, 310, 0, 0);
+        stockC.setBounds(70, 310, 50, 20);
 
         ic.setText("ICE CREAM");
         jPanel3.add(ic);
@@ -362,13 +364,13 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(Rpi);
         Rpi.setBounds(210, 290, 58, 14);
 
-        jLabel23.setText("Stock");
+        jLabel23.setText("Stock :");
         jPanel3.add(jLabel23);
-        jLabel23.setBounds(190, 310, 26, 14);
+        jLabel23.setBounds(190, 310, 40, 14);
 
         stockIC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(stockIC);
-        stockIC.setBounds(240, 310, 0, 0);
+        stockIC.setBounds(240, 310, 40, 20);
 
         j.setText("JUICE");
         jPanel3.add(j);
@@ -380,11 +382,11 @@ public class pilihMenu extends javax.swing.JFrame {
 
         jLabel27.setText("Stock :");
         jPanel3.add(jLabel27);
-        jLabel27.setBounds(340, 310, 33, 14);
+        jLabel27.setBounds(340, 310, 40, 14);
 
         stockJ.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(stockJ);
-        stockJ.setBounds(390, 310, 0, 0);
+        stockJ.setBounds(390, 310, 50, 20);
 
         b.setText("BURGER");
         jPanel3.add(b);
@@ -396,11 +398,11 @@ public class pilihMenu extends javax.swing.JFrame {
 
         jLabel31.setText("Stock :");
         jPanel3.add(jLabel31);
-        jLabel31.setBounds(30, 470, 33, 14);
+        jLabel31.setBounds(30, 470, 50, 14);
 
         stockB.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(stockB);
-        stockB.setBounds(90, 470, 0, 0);
+        stockB.setBounds(80, 470, 60, 30);
 
         p.setText("PIZZA");
         jPanel3.add(p);
@@ -410,13 +412,13 @@ public class pilihMenu extends javax.swing.JFrame {
         jPanel3.add(Rpp);
         Rpp.setBounds(350, 450, 70, 14);
 
-        jLabel35.setText("Stock");
+        jLabel35.setText("Stock :");
         jPanel3.add(jLabel35);
-        jLabel35.setBounds(330, 470, 26, 14);
+        jLabel35.setBounds(330, 470, 50, 14);
 
         stockP.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(stockP);
-        stockP.setBounds(390, 470, 0, 0);
+        stockP.setBounds(390, 470, 60, 30);
 
         Tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -547,13 +549,14 @@ public class pilihMenu extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pembelian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlabel23)
-                    .addComponent(pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlabel23))
+                    .addComponent(pembayaran))
                 .addGap(18, 18, 18)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabel43)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -629,6 +632,7 @@ public class pilihMenu extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        membacadataMenu();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -656,12 +660,12 @@ public class pilihMenu extends javax.swing.JFrame {
         String stockKosong = "-1";
         boolean cek = d.equals(stockKosong);
         if (cek) {
-            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+            JOptionPane.showMessageDialog(rootPane, "Stock Steak HABIS ");
         } else {
             stockSS.setText(d);
             dtm.addRow(o);
 
-            totalHarga += 8000;
+            totalHarga += 30000;
             pembelian.setText("" + totalHarga);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -678,12 +682,12 @@ public class pilihMenu extends javax.swing.JFrame {
         String stockKosong = "-1";
         boolean cek = d.equals(stockKosong);
         if (cek) {
-            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+            JOptionPane.showMessageDialog(rootPane, "Stock Spaghetti HABIS ");
         } else {
             stockSP.setText(d);
             dtm.addRow(o);
 
-            totalHarga += 8000;
+            totalHarga += 20000;
             pembelian.setText("" + totalHarga);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -700,12 +704,12 @@ public class pilihMenu extends javax.swing.JFrame {
         String stockKosong = "-1";
         boolean cek = d.equals(stockKosong);
         if (cek) {
-            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+            JOptionPane.showMessageDialog(rootPane, "Stock Coffe HABIS ");
         } else {
             stockC.setText(d);
             dtm.addRow(o);
 
-            totalHarga += 8000;
+            totalHarga += 10000;
             pembelian.setText("" + totalHarga);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -722,12 +726,12 @@ public class pilihMenu extends javax.swing.JFrame {
         String stockKosong = "-1";
         boolean cek = d.equals(stockKosong);
         if (cek) {
-            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+            JOptionPane.showMessageDialog(rootPane, "Stock Ice Cream HABIS ");
         } else {
             stockIC.setText(d);
             dtm.addRow(o);
 
-            totalHarga += 8000;
+            totalHarga += 15000;
             pembelian.setText("" + totalHarga);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -744,7 +748,7 @@ public class pilihMenu extends javax.swing.JFrame {
         String stockKosong = "-1";
         boolean cek = d.equals(stockKosong);
         if (cek) {
-            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+            JOptionPane.showMessageDialog(rootPane, "Stock Juice HABIS ");
         } else {
             stockJ.setText(d);
             dtm.addRow(o);
@@ -766,12 +770,12 @@ public class pilihMenu extends javax.swing.JFrame {
         String stockKosong = "-1";
         boolean cek = d.equals(stockKosong);
         if (cek) {
-            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+            JOptionPane.showMessageDialog(rootPane, "Stock Burger HABIS ");
         } else {
             stockB.setText(d);
             dtm.addRow(o);
 
-            totalHarga += 8000;
+            totalHarga += 15000;
             pembelian.setText("" + totalHarga);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -788,22 +792,22 @@ public class pilihMenu extends javax.swing.JFrame {
         String stockKosong = "-1";
         boolean cek = d.equals(stockKosong);
         if (cek) {
-            JOptionPane.showMessageDialog(rootPane, "Stock NASI KUNING anda HABIS Bos!");
+            JOptionPane.showMessageDialog(rootPane, "Stock Pizza HABIS");
         } else {
             stockP.setText(d);
             dtm.addRow(o);
 
-            totalHarga += 8000;
+            totalHarga += 40000;
             pembelian.setText("" + totalHarga);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-                dtm.getDataVector().removeAllElements();
+        dtm.getDataVector().removeAllElements();
         dtm.fireTableDataChanged();
 
-        pembayaran.setText("0");
+        pembelian.setText("0");
         totalHarga = 0;
         pembayaran.setText("0");
         kembalian.setText("0");
@@ -813,14 +817,17 @@ public class pilihMenu extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        mainMenu menu = new mainMenu();
+        mainMenu mm = new mainMenu();
 
-        menu.setVisible(true);
+        mm.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        Stock stk = new Stock();
+
+        stk.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
