@@ -644,7 +644,7 @@ public class pilihMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         MessageFormat header = new MessageFormat("Struk Belanja");
 
-        MessageFormat footer = new MessageFormat("Terima kasih telah belanja di AWP");
+        MessageFormat footer = new MessageFormat("Terima kasih telah makan di restoran kami");
         try {
             Tabel.print(JTable.PrintMode.NORMAL, header, footer);
         } catch (java.awt.print.PrinterException e) {
