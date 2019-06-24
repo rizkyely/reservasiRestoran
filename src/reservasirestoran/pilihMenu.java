@@ -77,7 +77,7 @@ public class pilihMenu extends javax.swing.JFrame {
         
     }
     public void menulisdataMenu(){
-        File file = new File("src/reservasirestoran/stockFood.txt");
+        File file = new File("src/reservasirestoran/stock.txt");
 
         try {
             FileWriter write = new FileWriter(file);
